@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Form</title>
+
+    <style type="text/css">
+      body{
+        background-image: radial-gradient(circle, #c079c8 0%, #00d4ff 100%);
+      }
+      h3{ 
+        font-size: 40px;
+      }
+      input{
+        outline: none;
+        border: none;
+        border-radius: 15px;
+        margin-top: 10px;
+        width: 250px;
+        height: 30px;
+      }
+      button{
+        margin-top: 10px;
+        width: 100px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 15px;
+      }
+      label{
+        font-weight: bold;
+      }
+      a{
+        text-decoration: none;
+      }
+    </style>
+
+  </head>
+  <body class="container">
+    <center>
+    <h3>Register Form</h3>
+    
+    <form method="POST">
+      <table>
+      <tr>
+        <td>
+          <label>E-mail: </label>
+        </td>
+        <td>
+          <input type="email" name="email" placeholder="Enter Email" required />
+        </td>
+      </tr>
+      <br>
+      <tr>
+        <td>
+          <label>Name: </label>
+        </td>
+        <td>
+          <input type="text" name="username" placeholder="Enter Username" required />
+        </td>
+      </tr>
+      <br>
+      <tr>
+        <td>
+          <label>Roll Number: </label>
+        </td>
+        <td>
+          <input type="text" name="rollNo" placeholder="Enter RollNo" required />
+        </td>
+      </tr>
+      <br>
+      <tr>
+        <td>
+          <label>Password: </label>
+        </td>
+        <td>
+          <input type="password" name="password" placeholder="Enter Password" required />
+        </td>
+      </tr>
+      <br>
+    </table>
+      <button type="submit">Register</button>
+      
+    </form>
+  
+    <p>{{success}}</p>
+    <p style="color: red">{{error}}</p>
+    <a href="/login">Already have an account? Login</a>
+  </center>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
