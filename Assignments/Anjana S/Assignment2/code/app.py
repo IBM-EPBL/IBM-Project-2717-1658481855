@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 
 import ibm_db
 import bcrypt
-conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=fbd88901-ebdb-4a4f-a32e-9822b9fb237b.c1ogj3sd0tgtu0lqde00.databases.appdomain.cloud;PORT=32731;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;PROTOCOL=TCPIP;UID=lhk92942;PWD=Cht7cZes9VeaXQ5N",'','')
+conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=9938aec0-8105-433e-8bf9-0fbb7e483086.c1ogj3sd0tgtu0lqde00.databases.appdomain.cloud;PORT=32459;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;PROTOCOL=TCPIP;UID=wdt07473;PWD=khxUTQVy0OaDAOdc",'','')
 
 
 # url_for('static', filename='style.css')
@@ -15,17 +15,17 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 def home():
     if 'email' not in session:
       return redirect(url_for('login'))
-    return render_template('home.html',name='Home')
+    return render_template('index.html',name='Home')
 
 @app.route("/register",methods=['GET','POST'])
 def register():
   if request.method == 'POST':
     email = request.form['email']
-    username = request.form['username']
+    name = request.form['name']
     rollNo = request.form['rollNo']
     password = request.form['password']
 
-    if not email or not username or not rollNo or not password:
+    if not email or not name or not rollNo or not password:
       return render_template('register.html',error='Please fill all fields')
     
     hash=bcrypt.hashpw(password.encode('utf-8'),bcrypt.gensalt())
@@ -38,10 +38,10 @@ def register():
     isUser = ibm_db.fetch_assoc(stmt)
     
     if not isUser:
-      insert_sql = "INSERT INTO user_details(EMAIL, USERNAME, ROLLNO, PASSWORD) VALUES (?,?,?,?)"
+      insert_sql = "INSERT INTO user_details(EMAIL, NAME, ROLLNO, PASSWORD) VALUES (?,?,?,?)"
       prep_stmt = ibm_db.prepare(conn, insert_sql)
       ibm_db.bind_param(prep_stmt, 1, email)
-      ibm_db.bind_param(prep_stmt, 2, username)
+      ibm_db.bind_param(prep_stmt, 2, name)
       ibm_db.bind_param(prep_stmt, 3, rollNo)
       ibm_db.bind_param(prep_stmt, 4, hash)
       ibm_db.execute(prep_stmt)
