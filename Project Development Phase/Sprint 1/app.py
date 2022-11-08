@@ -1,17 +1,10 @@
 from flask import Flask, render_template, request, session
-from flask_mysqldb import MySQL
-import MySQLdb.cursors
-import json
 import requests
-from watson_developer_cloud import VisualRecognitionV3
-from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+import ibm_db
+import bcrypt
+conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=9938aec0-8105-433e-8bf9-0fbb7e483086.c1ogj3sd0tgtu0lqde00.databases.appdomain.cloud;PORT=32459;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;PROTOCOL=TCPIP;UID=wdt07473;PWD=khxUTQVy0OaDAOdc",'','')
 
 app = Flask(_name_)
-app.config['MYSQL_HOST'] = 'remotemysql.com'
-app.config['MYSQL_USER'] = 'ZzORf6jIVK'
-app.config['MYSQL_PASSWORD'] = 'e6u31tnYxX'
-app.config['MYSQL_DB'] = 'ZzORf6jIVK'
-mysql = MySQL(app)
 app.secret_key = 'a'
 
 @app.route('/')
