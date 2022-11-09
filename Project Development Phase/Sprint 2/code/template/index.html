@@ -1,79 +1,350 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html class="no-js" lang="en">
+<!--<![endif]-->
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutrients</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<meta charset="utf-8"/>
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width"/>
+<title>Nutrition-Assistant - Better Health</title>
+<!-- CSS Files-->
+<link rel="stylesheet" href="../static/stylesheets/style.css">
+
+<link rel="stylesheet" href="../static/stylesheets/skins/blue.css">
+<!-- skin color -->
+<link rel="stylesheet" href="../static/stylesheets/responsive.css">
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
-<style>
-    body{
-        /* background: #4DA0B0;   */
-        /* fallback for old browsers */
-/* background: -webkit-linear-gradient(to right, #D39D38, #4DA0B0);  */
- /* Chrome 10-25, Safari 5.1-6 */
-/* background: linear-gradient(to right, #D39D38, #4DA0B0);  */
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background-repeat: no-repeat;
-background-size: 1400px 750px;
-}
-.bgdata{
-    height: auto;
-   width: auto;
-background-color:rgb(255, 180, 82);
-border-color: black;
-}
-    
-</style>
-<body   style="background-image:url('/static/img/nutri.jpeg') ;">
-    <div class="bgdata">
-    <center>
-    <form action="/upload_img" method="POST" enctype="multipart/form-data">
-        <br><br>
-        <div id="wrapper">
-            <input type="file" name='foodimg' accept="image/*" onchange="preview_image(event)"><br>
-            <img id="output_image" style="width: 50%;height: 50%;" />
-        </div>
-        <br>
-        <button type="submit" class="btn btn-warning">Upload</button>
-        <br><br>
+<body>
+<!-- HIDDEN PANEL 
+================================================== -->
 
-    </form>
+<p class="slide">
+	<a href="#" class="btn-slide"></a>
+</p>
+<!-- HEADER
+================================================== -->
+<div class="row">
+	<div class="headerlogo four columns">
+		<div class="logo">
+			<a href="index.html">
+			<h4>Nutrition-Assistant</h4>
+			</a>
+		</div>
+	</div>
+	<div class="headermenu eight columns noleftmarg">
+		<nav id="nav-wrap">
+		<ul id="main-menu" class="nav-bar sf-menu">
+			<li class="current">
+			<a href="/">Home</a>
+			
+			</li>
+            
+			
+			
+			<li>
+			<a href="/login">login</a>
+		
+			</li>
 
-    {%if n%}
-    <h1><p><b>Food Name : {{fooditem}}</b>
-    </p>
-    <p><b>Total Nutrients : {{n|int}}</b>
-  </p>  </h1>
-  
-
-
-    <table class="table">
-        <thead >
-        <thead class="thead-dark">
-            <tr>
-                <th>sl.no</th>
-                <th>Nutrient</th>
-                <th>Value per 100g</th>
-
-            </tr>
-        </thead>
-        <tbody>
-        {%for i in range(0,n)%}
-        <tr>
-            <th scope="row">{{i+1}}</th>
-            <td>{{nlist[i]}}</td>
-            <td>{{vlist[i]}}</td>
-
-        </tr>
-        {%endfor%}
-
-</tbody>
-    </table>
-    {%endif%}
-</center>
+			<li>
+			<a href="/register">signup</a>
+			
+			</li>
+            <li>
+                <a href="/trackfood">Nutrients</a>
+            
+                </li>
+		
+		</ul>
+		</nav>
+	</div>
 </div>
+<div class="clear">
+</div>
+<!-- SLIDER 
+================================================== -->
+<div id="ei-slider" class="ei-slider">
+	<ul class="ei-slider-large">
+		<li>
+		<img src="../static/img/home1.jpeg" alt="image01" class="responsiveslide">
+		<div class="ei-title">
+			<h2>
+                Health is
+            </h2>
+			<h3>Hope</h3>
+		</div>
+		</li>
+		<li>
+		<img src="https://wallpapercave.com/wp/wp2067453.jpg" alt="image02" class="responsiveslide">
+		<div class="ei-title">
+			<h2> Health is</h2>
+			<h3>Wealth</h3>
+		</div>
+		</li>
+		<li>
+		<img src="https://wallpapercave.com/wp/wp2067583.jpg" alt="image03" class="responsiveslide">
+		<div class="ei-title">
+			<h2> Health is</h2>
+			<h3>Smile</h3>
+		</div>
+		</li>
+		<li>
+		<img src="https://wallpapercave.com/wp/wp4696896.jpg" alt="image04" class="responsiveslide">
+		<div class="ei-title">
+			<h2> Health is</h2>
+			<h3>Everything</h3>
+		</div>
+		</li>
+		<li>
+		<img src="https://wallpapercave.com/wp/wp2332975.jpg" alt="image05" class="responsiveslide">
+		<div class="ei-title">
+			<h2> Health is</h2>
+			<h3>Happiness</h3>
+		</div>
+		</li>
+		<li>
+		<img src="https://wallpapercave.com/wp/wp4696892.jpg" alt="image06" class="responsiveslide">
+		<div class="ei-title">
+			<h2> Health is</h2>
+			<h3>Reward</h3>
+		</div>
+		</li>
+		<li>
+		<img src="https://wallpapercave.com/wp/wp2067456.jpg" alt="image07" class="responsiveslide">
+		<div class="ei-title">
+			<h2> Health is</h2>
+			<h3>Cool</h3>
+		</div>
+		</li>
+		<li>
+		<img src="https://wallpapercave.com/wp/wp4696893.jpg" alt="image08" class="responsiveslide">
+		<div class="ei-title">
+			<h2> Health is </h2>
+			<h3>Love</h3>
+		</div>
+		</li>
+		<li>
+		<img src="https://wallpapercave.com/wp/wp3105348.jpg" alt="image09" class="responsiveslide">
+		<div class="ei-title">
+			<h2> Health is</h2>
+			<h3>adore</h3>
+		</div>
+		</li>
+		<li>
+		<img src="https://wallpapercave.com/wp/wp4696942.jpg" alt="image10" class="responsiveslide">
+		<div class="ei-title">
+			<h2> Health is </h2>
+			<h3>Life</h3>
+		</div>
+		</li>
+	</ul>
+	<!-- slider-thumbs -->
+	<ul class="ei-slider-thumbs">
+		<li class="ei-slider-element">Current</li>
+		<li><a href="#">Slide 1</a><img src="https://wallpapercave.com/wp/wp2067453.jpg" class="slideshowthumb" alt="thumb01"/></li>
+		<li><a href="#">Slide 2</a><img src="https://wallpapercave.com/wp/wp4696913.jpg" class="slideshowthumb" alt="thumb02"/></li>
+		<li><a href="#">Slide 3</a><img src="https://wallpapercave.com/wp/wp2067583.jpg" class="slideshowthumb" alt="thumb03"/></li>
+		<li><a href="#">Slide 4</a><img src="https://wallpapercave.com/wp/wp4696896.jpg" class="slideshowthumb" alt="thumb04"/></li>
+		<li><a href="#">Slide 5</a><img src="https://wallpapercave.com/wp/wp2332975.jpg" class="slideshowthumb" alt="thumb05"/></li>
+		<li><a href="#">Slide 6</a><img src="https://wallpapercave.com/wp/wp4696892.jpg" class="slideshowthumb" alt="thumb06"/></li>
+		<li><a href="#">Slide 7</a><img src="https://wallpapercave.com/wp/wp2067456.jpg" class="slideshowthumb" alt="thumb07"/></li>
+		<li><a href="#">Slide 8</a><img src="https://wallpapercave.com/wp/wp4696893.jpg" class="slideshowthumb" alt="thumb08"/></li>
+		<li><a href="#">Slide 9</a><img src="https://wallpapercave.com/wp/wp3105348.jpg" class="slideshowthumb" alt="thumb09"/></li>
+		<li><a href="#">Slide 10</a><img src="https://wallpapercave.com/wp/wp4696942.jpg" class="slideshowthumb" alt="thumb10"/></li>
+	</ul>
+</div>
+<div class="minipause">
+</div>
+<!-- SUBHEADER
+================================================== -->
+<div id="subheader">
+	<div class="row">
+		<div class="twelve columns">
+			<p class="text-center">
+				 "Diet is the essential key to all successful healing." - Joseph Raynauld Raymond
+			</p>
+		</div>
+	</div>
+</div>
+<!-- ANIMATED COLUMNS 
+================================================== -->
+<div class="row">
+	<div class="twelve columns">
+		<ul class="ca-menu">
+			<li>
+			<a href="#">
+			<span class="ca-icon"><i class="fa fa-heart"></i></span>
+			<div class="ca-content">
+				<h2 class="ca-main">Life<br/>Nutrients</h2>
+				<h3 class="ca-sub">Make your life healthy</h3>
+			</div>
+			</a>
+			</li>
+			<li>
+			<a href="#">
+			<span class="ca-icon"><i class="fa fa-bullhorn"></i></span>
+			<div class="ca-content">
+				<h2 class="ca-main">Supportive<br/>Suggestions</h2>
+				<h3 class="ca-sub">Take Suggestions and be healthy</h3>
+			</div>
+			</a>
+			</li>
+			<li>
+			<a href="#">
+			<span class="ca-icon"><i class="fa fa-user"></i></span>
+			<div class="ca-content">
+				<h2 class="ca-main">Friendly<br/> Diet</h2>
+				<h3 class="ca-sub">Help your friends</h3>
+			</div>
+			</a>
+			</li>
+			<li>
+			<a href="#">
+			<span class="ca-icon"><i class="fa fa-camera"></i></span>
+			<div class="ca-content">
+				<h2 class="ca-main">Social<br/> Portofolio</h2>
+				<h3 class="ca-sub">Show your fitness</h3>
+			</div>
+			</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- CONTENT 
+================================================== -->
+<div class="row">
+	<div class="twelve columns">
+		<div class="centersectiontitle">
+			<h4>What we do</h4>
+		</div>
+	</div>
+
+	<div class="four columns">
+		<h5>Application Discription</h5>
+		<p>
+           In this application we provide you the information based on the food input. You can check the food contents by uploding 
+		   the food images.we also provide the service to track the nutrition intake, which helps in maintain the proper diet.
+		</p>
+		<p>
+			<a href="login.html" class="readmore">Learn more</a>
+		</p>
+	</div>
+
+
+	<div class="four columns">
+		<h5>WHO Healthy Diet</h5>
+		<p>
+			A healthy diet helps to protect against malnutrition in all its forms, as well as noncommunicable diseases (NCDs), including diabetes, heart disease, stroke and cancer.   
+			Energy intake (calories) should be in balance with energy expenditure. To avoid unhealthy weight gain total fat should not exceed 30% of total energy intake.
+
+		</p>
+		<p>
+			<a href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet" class="readmore">Learn more</a>
+		</p>
+	</div>
+	
+	<div class="four columns">
+		<h5> NHP India Covid Precations</h5>
+		<p>
+			Eating the right kinds of foods, in the right amounts, is very crucial for our health. COVID-19 pandemic has changed a lot in the daily lives of people. During these difficult times,
+			 it has become essential to maintain a healthy lifestyle. While no foods or dietary supplements can prevent
+			 COVID-19 infection, but by maintaining a healthy diet we can keep our immune system strong for fighting the disease.
+		</p>
+		<p>
+			<a href="https://www.nhp.gov.in/healthlyliving/maintain-a-healthy-diet-during-covid-19-pandemic" class="readmore">Learn more</a>
+		</p>
+	</div>
+</div>
+<div class="hr">
+</div>
+<!-- TESTIMONIALS 
+================================================== -->
+<div class="row">
+	<div class="twelve columns">
+		<div id="testimonials">
+			<blockquote>
+				<p>
+                    “The doctors of the future will no longer treat the human frame with drugs, but rather will cure and prevent disease with nutrition.” <cite>Thomas Edison
+
+                    </cite>
+				</p>
+			</blockquote>
+			<blockquote>
+				<p>
+                    “Diet is the essential key to all successful healing. Without a proper balanced diet, the effectiveness of herbal treatment is very limited.”  <cite> Michael Tierra</cite>
+				</p>
+			</blockquote>
+			<blockquote>
+				<p>“Our food should be our medicine and our medicine should be our food. “<cite>  Hippocrates</cite>
+				</p>
+			</blockquote>
+		</div>
+		<!--end testimonials-->
+	</div>
+</div>
+
+<!-- FOOOTER 
+================================================== -->
+<div id="footer">
+	<footer class="row">
+	<p class="back-top floatright">
+		<a href="#top"><span></span></a>
+	</p>
+	<div class="four columns">
+		<h1>ABOUT US</h1>
+		 Our goal is to keep your health satisfied!
+	</div>
+	<div class="four columns">
+		<h1>GET SOCIAL</h1>
+		<a class="social facebook" href="#"></a>
+		<a class="social twitter" href="#"></a>
+		<a class="social deviantart" href="#"></a>
+		<a class="social flickr" href="#"></a>
+		<a class="social dribbble" href="#"></a>
+	</div>
+	<div class="four columns">
+		<h1 class="newsmargin">NEWSLETTER</h1>
+		<div class="row collapse newsletter floatright">
+			<div class="ten mobile-three columns">
+				<input type="text" class="nomargin" placeholder="Enter your e-mail address...">
+			</div>
+			<div class="two mobile-one columns">
+				<a href="#" class="postfix button expand">GO</a>
+			</div>
+		</div>
+	</div>
+	</footer>
+</div>
+<!-- delet it -->
+<div class="copyright">
+	<div class="row">
+		<div class="six columns">
+			
+			 <!-- &copy;<span class="small"> Copyright Nutrition-Assistant </span> -->
+		</div>
+		<div class="six columns">
+			<!-- <span class="small floatright">Design by <a target="_blank" href="http://www.wowthemes.net/premium-themes-templates/">MOHD ABDUL HAQ</a> </span> -->
+		</div>
+	</div>
+</div>
+<!-- JAVASCRIPTS 
+================================================== -->
+<!-- Javascript files placed here for faster loading -->
+<script src="../static/javascripts/foundation.min.js"></script>   
+<script src="../static/javascripts/jquery.easing.1.3.js"></script>
+<script src="../static/javascripts/elasticslideshow.js"></script>
+<script src="../static/javascripts/jquery.carouFredSel-6.0.5-packed.js"></script>
+<script src="../static/javascripts/jquery.cycle.js"></script>
+<script src="../static/javascripts/app.js"></script>
+<script src="../static/javascripts/modernizr.foundation.js"></script>
+<script src="../static/javascripts/slidepanel.js"></script>
+<script src="../static/javascripts/scrolltotop.js"></script>
+<script src="../static/javascripts/hoverIntent.js"></script>
+<script src="../static/javascripts/superfish.js"></script>
+<script src="../static/javascripts/responsivemenu.js"></script>
 </body>
 </html>
