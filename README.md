@@ -7,7 +7,7 @@ TEAM MEMBERS:
 Anjana S,Arthy N,Deepikala V,Keerthiya R
 
 IBM-Project-2717-1658481855
-## **Nutrient Assistant Application** 
+## **Nutrition Assistant Application** 
 
 
 ### TEAM MEMBERS:
