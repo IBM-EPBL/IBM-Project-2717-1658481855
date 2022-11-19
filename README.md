@@ -16,8 +16,10 @@ image of food. Clarifai's AI-Driven Food Detection Model Service is used to anal
 
 ## PROJECT OBJECTIVES:
 
-The main objective of this project is to help the students to save the time and money that they have to spend at the education consultancy ﬁrms.
-This project also will help them to limit their number of applications to a small number by proving to them the suggestion of the universities where they have the best chance of securing admission thus saving more money on the application fees.
+Food is the key element of every human body. So, diet must be always taken into consideration. The knowledge about total intake of calories and nutrients to be consumed to maintain a fit and healthy life is needed. But, in most of the cases, unfortunately people face difficulties during estimation and measurement of the amount of food intake due to the mainly lack of nutritional information.Now-a-days obesity in adults is increasing at a shocking rate. The primary source of obesity is the disparity between the amount of meal intake and the energy burnt through physical activity. Colon, breast, and prostate cancers are caused due to high calorie intake. 
+This application will be more flexible and any user can access at anytime.User can upload any food images and the API gives nutritional information for maintaining healthy lifestyle. Users can get in touch with the dietician through our portal for more information.
+
+
 
 
 
